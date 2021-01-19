@@ -1,13 +1,6 @@
 # use a node base image
-FROM node:7-onbuild
-
+FROM centos:latest
 # set maintainer
-LABEL maintainer "keyspaceits123@gmail.com"
-
-# set a health check
-HEALTHCHECK --interval=5s \
-            --timeout=5s \
-            CMD curl -f http://127.0.0.1:8000 || exit 1
-
-# tell docker what port to expose
-EXPOSE 8000
+RUN yum -y install httpd 
+EXPOSE 80
+CMD /usr/sbin/httpd -D FOREGROUND
