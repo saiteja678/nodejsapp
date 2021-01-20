@@ -10,9 +10,7 @@ node {
     stage('Build image') {
         /* This builds the actual image */
 
-        app = docker.build("keyspaceit
-/
-nodejsapp")
+        app = docker.build("keyspaceits/nodejsapp")
     }
 
     stage('Test image') {
